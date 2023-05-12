@@ -46,7 +46,7 @@ struct ContentView: View {
     }
     func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-        guard answer.count > 0 else { return }
+        guard answer.count >= 3 && newWord == newWord else { return }
         
         guard isOriginal(word: answer) else {
             wordError(title: "Word used allready", message: "Be more orignal!")
@@ -60,6 +60,7 @@ struct ContentView: View {
             wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
             return
         }
+        
         
         withAnimation {
             usedWords.insert(answer, at: 0)
