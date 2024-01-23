@@ -61,8 +61,6 @@ struct ContentView: View {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         guard answer.count >= 3 else { return }
         
-        
-        
         guard sameWord(word: answer) else {
             wordError(title: "Same Word", message: "You know!")
             score -= 1
